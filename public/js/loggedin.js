@@ -80,7 +80,20 @@ function showFavoriteMeetings() {
           axios.get(queryURL).then(function(response) {
             console.log(response);
             const meeting = response.data.meetings[0];
-            loginTextCont.innerHTML = `
+            if (meetingID === null) {
+              loginTextCont.innerHTML = `
+              <div class="row">
+              <div class="col">
+                  <div class="card favorite-meeting-container">
+                      <div class="card-header">
+                          <p class="meeting-title">Your saved meetings will appear here.</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              `;
+            } else {
+              loginTextCont.innerHTML = `
                             <div class="row">
                             <div class="col">
                                 <div class="card favorite-meeting-container">
@@ -103,6 +116,7 @@ function showFavoriteMeetings() {
                             </div>
                         </div>
                             `;
+            }
           });
         }, 400);
       } else {
