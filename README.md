@@ -8,7 +8,7 @@ An AA meeting locator that allows users to find meetings based on search criteri
 
 **Deployed App**
 <br>
-https://meeting-finder.herokuapp.com/
+https://aa-meeting-finder.herokuapp.com/
 
 **Images**
 <br>
