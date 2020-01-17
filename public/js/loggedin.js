@@ -84,16 +84,10 @@ function showFavoriteMeetings() {
         loginTextEl.append(loginTextCont);
         setTimeout(function() {
           loginTextEl.classList.add("appear");
-          console.log(meetingID);
           const queryURL =
             "https://api.aa.org.au/meetings.json?id=" + meetingID;
-          console.log(queryURL);
-          // eslint-disable-next-line no-undef
-          axios.get(queryURL).then(function(response) {
-            console.log(response);
-            const meeting = response.data.meetings[0];
-            if (meetingID === null) {
-              loginTextCont.innerHTML = `
+          if (meetingID === null) {
+            loginTextCont.innerHTML = `
               <div class="row">
               <div class="col meeting-container-holder2">
                   <div class="card favorite-meeting-container">
@@ -104,7 +98,23 @@ function showFavoriteMeetings() {
                 </div>
               </div>
               `;
-            } else {
+          } else {
+            loginTextCont.innerHTML = `
+              <div class="row">
+              <div class="col meeting-container-holder2">
+                  <div class="card favorite-meeting-container">
+                      <div class="card-header">
+                          <p class="meeting-title">Loading...</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              `;
+            // eslint-disable-next-line no-undef
+            axios.get(queryURL).then(function(response) {
+              console.log(response);
+              const meeting = response.data.meetings[0];
+
               loginTextCont.innerHTML = `
                             <div class="row">
                             <div class="col meeting-container-holder">
@@ -128,8 +138,8 @@ function showFavoriteMeetings() {
                             </div>
                         </div>
                             `;
-            }
-          });
+            });
+          }
         }, 400);
       } else {
         loginTextEl.classList.remove("appear");
