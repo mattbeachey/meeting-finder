@@ -3,6 +3,10 @@ body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -11,7 +15,7 @@ body {
 footer {
   background-color: #fbc02d;
   height: 10vh;
-  width: 100vw;
+  width: 100%;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -48,6 +52,7 @@ footer {
 }
 
 .login-forms {
+  width: 100%;
   position: absolute;
   top: 40vh;
   opacity: 0;
@@ -143,10 +148,30 @@ footer {
   margin-top: 12px;
 }
 
+.map-link {
+  color: #dfad2f;
+  font-weight: bold;
+}
+
+.map-link:hover {
+  color: #dfad2f;
+}
+
+.meeting-container-holder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.meeting-container-holder2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
 .favorite-meeting-container {
-  border: 2px solid black;
-  position: relative;
-  left: 35vw;
+  border: 2px solid #dfad2f;
+  border-radius: 8px;
 }
 
 .header-text-Matt {
@@ -189,6 +214,17 @@ footer {
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
+  transition: 0.25s;
+}
+
+.about-box-rotate-left {
+  transform: rotate(10deg);
+  transition: 0.25s;
+}
+
+.about-box-rotate-right {
+  transform: rotate(-10deg);
+  transition: 0.25s;
 }
 
 .bar1,
@@ -253,7 +289,7 @@ footer {
 
 .meeting-title {
   font-size: 20px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .data {
@@ -269,6 +305,11 @@ button.favorites,
 button.advanced-search {
   background: none;
   border: none;
+}
+
+button.favorites:hover,
+button.advanced-search:hover {
+  color: #dfad2f;
 }
 
 .favorites:hover,

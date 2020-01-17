@@ -9,6 +9,8 @@ aboutButtonEl.addEventListener("click", function() {
   topBarEl.classList.toggle("bar1clicked");
   midBarEl.classList.toggle("bar2clicked");
   botBarEl.classList.toggle("bar3clicked");
+  // eslint-disable-next-line no-undef
+  openLoginForms();
 });
 
 // advanced search event listener
@@ -102,7 +104,7 @@ searchButtonEl.addEventListener("click", function() {
                             <p class="data">${meeting.address}, ${meeting.region}, ${meeting.state}, ${meeting.postcode}</p>
                             <p class="data">${meeting.directions}</p>
                             <p>
-                            <a href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
+                            <a class="map-link" href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
                             &nbsp <button class="favorites" onclick="addToFavorites(${meeting.id}, ${i})" id="favorites${i}">Add to favorites</button>
                             </p>
                         </blockquote>

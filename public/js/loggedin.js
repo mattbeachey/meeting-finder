@@ -26,10 +26,22 @@ function addToFavorites(id, i) {
     .then(function(response) {
       console.log(response);
       const addedToFavorites = document.getElementById("favorites" + i);
-      addedToFavorites.innerText = "Added!";
+      addedToFavorites.innerText =
+        "Added! Click top-right menu to see saved favorites";
       setTimeout(function() {
         addedToFavorites.innerText = "";
         addedToFavorites.blur();
+        window.scrollTo(0, 0);
+        setTimeout(function() {
+          aboutButtonEl.classList.add("about-box-rotate-left");
+          setTimeout(function() {
+            aboutButtonEl.classList.remove("about-box-rotate-left");
+            aboutButtonEl.classList.add("about-box-rotate-right");
+            setTimeout(function() {
+              aboutButtonEl.classList.remove("about-box-rotate-right");
+            }, 250);
+          }, 250);
+        }, 1000);
       }, 2000);
     })
     .catch(function(error) {
@@ -38,7 +50,7 @@ function addToFavorites(id, i) {
 }
 
 //click handlers for about menu/block
-const aboutButtonEl = document.getElementById("about-box");
+const aboutButtonEl = document.getElementById("about-box2");
 const topBarEl = document.getElementById("bar1");
 const midBarEl = document.getElementById("bar2");
 const botBarEl = document.getElementById("bar3");
@@ -83,7 +95,7 @@ function showFavoriteMeetings() {
             if (meetingID === null) {
               loginTextCont.innerHTML = `
               <div class="row">
-              <div class="col">
+              <div class="col meeting-container-holder2">
                   <div class="card favorite-meeting-container">
                       <div class="card-header">
                           <p class="meeting-title">Your saved meetings will appear here.</p>
@@ -95,7 +107,7 @@ function showFavoriteMeetings() {
             } else {
               loginTextCont.innerHTML = `
                             <div class="row">
-                            <div class="col">
+                            <div class="col meeting-container-holder">
                                 <div class="card favorite-meeting-container">
                                     <div class="card-header">
                                         <p class="meeting-title">Saved Meeting:</p>
@@ -108,7 +120,7 @@ function showFavoriteMeetings() {
                                             <p class="data">${meeting.address}, ${meeting.region}, ${meeting.state}, ${meeting.postcode}</p>
                                             <p class="data">${meeting.directions}</p>
                                             <p>
-                                            <a href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
+                                            <a class="map-link" href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
                                             </p>
                                         </blockquote>
                                     </div>
