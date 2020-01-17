@@ -344,4 +344,7 @@ button.advanced-search:hover {
   .favorite-meeting-container {
     left: 0;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
