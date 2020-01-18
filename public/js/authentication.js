@@ -9,7 +9,7 @@ logInButton.addEventListener("click", function() {
   openLoginForms();
 });
 
-function openLoginForms() {
+function openLoginForms(id) {
   fillInDivEl.classList.toggle("fill-in-div");
   appearSelector++;
   if (appearSelector % 2 === 0) {
@@ -43,21 +43,33 @@ function openLoginForms() {
       const userNameSignUpEl = document.getElementById("userNameSignUp");
       const passwordSignUpEl = document.getElementById("passwordSignUp");
       loginBtnEl.addEventListener("click", function() {
-        runLogin();
+        runLogin(id);
       });
       signUpBtnEl.addEventListener("click", function() {
-        runSignUp();
+        runSignUp(id);
       });
 
-      function runLogin() {
+      function runLogin(id) {
         const userData = {
           username: userNameLoginEl.value.trim(),
-          password: passwordLoginEl.value.trim()
+          password: passwordLoginEl.value.trim(),
+          meeting_id: id
         };
-
-        if (!userData.username || !userData.password) {
+        if (!userData.username) {
+          userNameLoginEl.setAttribute(
+            "placeholder",
+            "Please enter a username"
+          );
           return;
         }
+        if (!userData.password) {
+          passwordLoginEl.setAttribute(
+            "placeholder",
+            "Please enter a password"
+          );
+          return;
+        }
+
         console.log(userData);
         // eslint-disable-next-line no-undef
         axios
@@ -72,20 +84,34 @@ function openLoginForms() {
           });
       }
 
-      function runSignUp() {
+      function runSignUp(id) {
         const userData = {
           username: userNameSignUpEl.value.trim(),
-          password: passwordSignUpEl.value.trim()
+          password: passwordSignUpEl.value.trim(),
+          meeting_id: id
         };
 
-        if (!userData.username || !userData.password) {
+        if (!userData.username) {
+          userNameSignUpEl.setAttribute(
+            "placeholder",
+            "Please enter a username"
+          );
           return;
         }
+        if (!userData.password) {
+          passwordSignUpEl.setAttribute(
+            "placeholder",
+            "Please enter a password"
+          );
+          return;
+        }
+
         console.log(userData);
         // eslint-disable-next-line no-undef
         axios
           .post("/api/signup", userData)
           .then(function(data) {
+            console.log("aaaaaand " + id);
             console.log(data.data);
             window.location.replace(data.data); //pulls url part of object to redirect user to logged in page
             // If there's an error, log the error

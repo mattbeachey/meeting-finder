@@ -1,5 +1,19 @@
 //js features for signed in "members" page
 
+//animation of burger menu
+function burgerMenuWiggle() {
+  setTimeout(function() {
+    aboutButtonEl.classList.add("about-box-rotate-left");
+    setTimeout(function() {
+      aboutButtonEl.classList.remove("about-box-rotate-left");
+      aboutButtonEl.classList.add("about-box-rotate-right");
+      setTimeout(function() {
+        aboutButtonEl.classList.remove("about-box-rotate-right");
+      }, 250);
+    }, 250);
+  }, 1000);
+}
+
 //this global variable will pick up the user's username to be used below
 let identifier;
 
@@ -9,6 +23,12 @@ function getUserInfo() {
     identifier = data.data.username;
     const welcomeEl = document.getElementById("welcome");
     welcomeEl.innerHTML = "Welcome " + identifier;
+    if (data.data.meeting_id !== null) {
+      console.log("wiggle? " + data.data.meeting_id);
+      burgerMenuWiggle();
+    } else {
+      console.log("no wiggle " + data.data.meeting_id);
+    }
   });
 }
 
@@ -32,16 +52,7 @@ function addToFavorites(id, i) {
         addedToFavorites.innerText = "";
         addedToFavorites.blur();
         window.scrollTo(0, 0);
-        setTimeout(function() {
-          aboutButtonEl.classList.add("about-box-rotate-left");
-          setTimeout(function() {
-            aboutButtonEl.classList.remove("about-box-rotate-left");
-            aboutButtonEl.classList.add("about-box-rotate-right");
-            setTimeout(function() {
-              aboutButtonEl.classList.remove("about-box-rotate-right");
-            }, 250);
-          }, 250);
-        }, 1000);
+        burgerMenuWiggle();
       }, 2000);
     })
     .catch(function(error) {
@@ -60,6 +71,7 @@ aboutButtonEl.addEventListener("click", function() {
   botBarEl.classList.toggle("bar3clicked");
   showFavoriteMeetings();
 });
+
 let appearSelector2 = 1; //this mutable variable goes up by 1 to be used in a function below
 function showFavoriteMeetings() {
   //axios calls to get favorite meeting info

@@ -51,6 +51,10 @@ module.exports = {
     //BEGIN AUTHORIZATION ROUTES-----------------------------------------------------------------------------------
 
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
+      db.UserInfo.update(
+        { meeting_id: req.body.meeting_id },
+        { where: { username: req.body.username } }
+      );
       res.json("/members");
     });
 
