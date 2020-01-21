@@ -25,9 +25,10 @@ advancedSearchEl.addEventListener("click", function() {
 //Axios call to the AA database
 const searchButtonEl = document.getElementById("search-button");
 searchButtonEl.addEventListener("click", function() {
-  const day = document.getElementById("search-day").value;
-  const time = document.getElementById("search-time").value;
+  const day = document.getElementById("search-day").value.toLowerCase();
+  const time = document.getElementById("search-time").value.toLowerCase();
   const location = document.getElementById("search-location").value;
+  const locationEl = document.getElementById("search-location");
   // const searchDataEl = document.getElementById("search-data");
 
   // Advanced search field validations
@@ -81,10 +82,12 @@ searchButtonEl.addEventListener("click", function() {
     location +
     "&limit=20&offset=0";
   console.log(queryURL);
-
+  locationEl.value = "";
+  locationEl.setAttribute("placeholder", "Loading...");
   // eslint-disable-next-line no-undef
   axios.get(queryURL).then(function(response) {
     // console.log(response.data.meetings[0]);
+    locationEl.setAttribute("placeholder", "");
     const meetingsArr = response.data.meetings;
     $("#search-data").html(``);
     for (let i = 0; i < 10; i++) {
