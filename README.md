@@ -1,10 +1,10 @@
-**User Story**
-<br>
-As a user I would like to locate AA meetings so that I can continue in the process of recovery.
-
 **Description**
 <br>
-An Australian AA meeting locator that allows users to find meetings based on search criteria. Users are given the option to sign in, create a new account, or use the application as guest. Upon login, users can save searched meetings and view saved meetings. All users will find an advanced search option to filter results by day and time of day. A link to Google Maps is also available for each meeting for guests and returning users.
+An Australian AA meeting locator (limited by the availability of good API coverage) that allows users to find meetings based on search criteria. Users are given the option to sign in, create a new account, or use the application as guest. Upon login, users can save searched meetings and view saved meetings. All users will find an advanced search option to filter results by day and time of day. A link to Google Maps is also available for each meeting for guests and returning users.
+
+**New Features**
+<br>
+If a user selects "Add Meeting" before they have logged in, they are prompted to login or sign up. Upon doing either of these, the meeting they selected before logging in is added as a favorite to their profile.
 
 **Deployed App**
 <br>
