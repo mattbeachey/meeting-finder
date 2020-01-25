@@ -107,7 +107,7 @@ searchButtonEl.addEventListener("click", function() {
                             <p class="data">${meeting.address}, ${meeting.region}, ${meeting.state}, ${meeting.postcode}</p>
                             <p class="data">${meeting.directions}</p>
                             <p>
-                            <a class="map-link" href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
+                            <a class="map-link" target="blank" href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
                             &nbsp <button class="favorites" onclick="addToFavorites(${meeting.id}, ${i})" id="favorites${i}">Add to favorites</button>
                             </p>
                         </blockquote>

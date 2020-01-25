@@ -142,7 +142,7 @@ function showFavoriteMeetings() {
                                             <p class="data">${meeting.address}, ${meeting.region}, ${meeting.state}, ${meeting.postcode}</p>
                                             <p class="data">${meeting.directions}</p>
                                             <p>
-                                            <a class="map-link" href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
+                                            <a class="map-link" target="black" href="https://www.google.com/maps/place/${meeting.address}+${meeting.state}+Australia/">Map</a>
                                             </p>
                                         </blockquote>
                                     </div>

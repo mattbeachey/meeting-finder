@@ -317,7 +317,31 @@ button.advanced-search:hover {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 701px) {
+  .header-text-Matt {
+    font-size: 5vh;
+    top: 15px;
+  }
+  .header-text-Matt:before {
+    top: -30px;
+    height: 9vh;
+  }
+  .header-text-Matt:after {
+    top: -15px;
+    height: 9vh;
+  }
+  .gap2 {
+    width: 100%;
+    height: 40px;
+  }
+}
+
 @media screen and (max-width: 700px) {
+  .gap2 {
+    width: 100%;
+    height: 20px;
+  }
+
   .header-text-Matt {
     font-size: 5vh;
     top: 15px;
