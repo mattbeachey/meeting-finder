@@ -31,7 +31,7 @@ This app was made as an easy way to locate AA meetings for users.
 **Contributing**
 <br>
 
-Matt Beachey (Front-End and Back End)
+Matt Beachey (Tech Lead, Front-End and Back End)
 <br>
 Michelle Owodunni (Front-End)
 <br>
