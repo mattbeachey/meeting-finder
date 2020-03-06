@@ -1,6 +1,6 @@
 **Description**
 <br>
-An Australian AA meeting locator (limited by the availability of good API coverage) that allows users to find meetings based on search criteria. Users are given the option to sign in, create a new account, or use the application as guest. Upon login, users can save searched meetings and view saved meetings. All users will find an advanced search option to filter results by day and time of day. A link to Google Maps is also available for each meeting for guests and returning users.
+An Alcoholics Anonymous meeting locator (currently limited to meetings in Australia because of availability of good API coverage) that allows users to find meetings based on search criteria. Users are given the option to sign in, create a new account, or use the application as guest. Upon login, users can save searched meetings and view saved meetings. All users will find an advanced search option to filter results by day and time of day. A link to Google Maps is also available for each meeting for guests and returning users.
 
 **New Features**
 <br>
